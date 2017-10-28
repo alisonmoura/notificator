@@ -7,17 +7,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Configuração de Perfil"
+        android:text="CONFIGURAÇÃO DE PERFIL"
         android:layout_gravity="center_horizontal"
-        android:textSize="12pt"
+        android:textSize="10pt"
         android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/user"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"/>
+
 
     <Button
         android:id="@+id/button_importar_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="30dp"
         android:padding="30dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:text="importar do facebook"
         android:layout_gravity="center_horizontal"/>
 
@@ -28,6 +38,8 @@
         android:layout_marginTop="10dp"
         android:padding="30dp"
         android:text="importar do celular"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"/>
 
 </LinearLayout>
