@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/o_que_voce_quer_fazer"
+        android:id="@+id/text_view_mensagem_inicial"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="12pt"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contatos"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_contatos"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notificações"
+        android:layout_above="@id/btn_contatos"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>
