@@ -18,6 +18,15 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.CadastroContatoActivity">
+        </activity>
+
+        <activity android:name=".activity.ConfiguracaoContaActivity">
+        </activity>
+        
+        <activity android:name=".activity.CadastroNotificacaoActivity">
+        </activity>
+
     </application>
 
 </manifest>
