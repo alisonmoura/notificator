@@ -7,14 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.notificator.notificator.R;
 
-/**
- * Created by Ana Elisa on 04/11/2017.
- */
+public class CadastroNotificacaoActivity extends AppCompatActivity {
 
-public class MainConta extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.configuracao_conta);
+        setContentView(R.layout.cadastro_notificacao);
     }
 }
