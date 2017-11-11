@@ -1,5 +1,6 @@
 package com.notificator.notificator.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -23,10 +24,9 @@ public class MainActivity extends AppCompatActivity{
 
     @OnClick(R.id.btn_notificacoes)
      public void irParaNotificacao(){
-                System.out.println("Clicou no botão");
-                TextView textoInicial = (TextView)findViewById(R.id.text_view_mensagem_inicial);
-                textoInicial.setText("Clicou no botão de notificações");
-            }
+        Intent i = new Intent(MainActivity.this, CadastroNotificacaoActivity.class);
+        startActivity(i);
+    }
 
 
 }
