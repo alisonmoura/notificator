@@ -21,5 +21,12 @@ public class MainActivity extends AppCompatActivity{
         ButterKnife.bind(this);
     }
 
+    @OnClick(R.id.btn_notificacoes)
+     public void irParaNotificacao(){
+                System.out.println("Clicou no botão");
+                TextView textoInicial = (TextView)findViewById(R.id.text_view_mensagem_inicial);
+                textoInicial.setText("Clicou no botão de notificações");
+            }
+
 
 }

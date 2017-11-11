@@ -18,13 +18,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.CadastroContatoActivity">
+        <activity android:name=".activity.CadastroContatoActivity" android:label="Contato">
         </activity>
 
-        <activity android:name=".activity.ConfiguracaoContaActivity">
+        <activity android:name=".activity.ConfiguracaoContaActivity" android:label="Minha Conta">
         </activity>
         
-        <activity android:name=".activity.CadastroNotificacaoActivity">
+        <activity android:name=".activity.CadastroNotificacaoActivity" android:label="Notificação">
+
         </activity>
 
     </application>
