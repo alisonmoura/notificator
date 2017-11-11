@@ -30,6 +30,7 @@
         android:text="Notificações"
         android:layout_above="@id/btn_contatos"
         android:background="@color/colorPrimary"
+        android:id="@+id/btn_notificacoes"
         android:textColor="@color/white"/>
 
 </RelativeLayout>
