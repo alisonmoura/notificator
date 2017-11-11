@@ -46,5 +46,11 @@ public class MainActivity extends AppCompatActivity{
         startActivity(i);
     }
 
+    @OnClick(R.id.btn_contatos)
+    public void irParaContato(){
+        Intent a =  new Intent(MainActivity.this, CadastroContatoActivity.class);
+        startActivity(a);
+    }
+
 
 }
