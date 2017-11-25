@@ -25,7 +25,9 @@
         </activity>
         
         <activity android:name=".activity.CadastroNotificacaoActivity" android:label="Notificação">
+        </activity>
 
+        <activity android:name=".activity.ListaNotificacao" android:label="Lista de Notificações">
         </activity>
 
     </application>

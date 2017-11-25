@@ -51,5 +51,11 @@ public class MainActivity extends AppCompatActivity{
         startActivity(a);
     }
 
+    @OnClick(R.id.btn_listar_notificacoes)
+    public void irParaListaNotificacoes(){
+        Intent i = new Intent(MainActivity.this, ListaNotificacao.class);
+        startActivity(i);
+    }
+
 
 }

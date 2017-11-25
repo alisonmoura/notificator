@@ -31,6 +31,26 @@
         android:layout_above="@id/btn_contatos"
         android:background="@color/colorPrimary"
         android:id="@+id/btn_notificacoes"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Notificações"
+        android:layout_above="@id/btn_notificacoes"
+        android:background="@color/colorPrimary"
+        android:id="@+id/btn_listar_notificacoes"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Contatos"
+        android:layout_above="@id/btn_listar_notificacoes"
+        android:background="@color/colorPrimary"
+        android:id="@+id/btn_listar_contatos"
         android:textColor="@color/white"/>
 
 </RelativeLayout>
