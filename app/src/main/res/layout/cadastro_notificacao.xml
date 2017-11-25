@@ -79,6 +79,7 @@
         android:layout_marginTop="10dp"
         android:text="Cancelar"
         android:textSize="12pt"
+        android:id="@+id/btnCancelar"
         android:textColor="@color/white"
         android:background="#d50000"/>
 
