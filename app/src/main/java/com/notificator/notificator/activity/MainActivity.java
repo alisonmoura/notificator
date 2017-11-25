@@ -35,18 +35,6 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    @OnClick(R.id.btn_notificacoes)
-     public void irParaNotificacao(){
-        Intent i = new Intent(MainActivity.this, CadastroNotificacaoActivity.class);
-        startActivity(i);
-    }
-
-    @OnClick(R.id.btn_contatos)
-    public void irParaContato(){
-        Intent a =  new Intent(MainActivity.this, CadastroContatoActivity.class);
-        startActivity(a);
-    }
-
     @OnClick(R.id.btn_listar_notificacoes)
     public void irParaListaNotificacoes(){
         Intent i = new Intent(MainActivity.this, ListaNotificacaoActivity.class);

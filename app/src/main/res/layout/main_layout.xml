@@ -17,28 +17,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contatos"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/btn_contatos"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Notificações"
-        android:layout_above="@id/btn_contatos"
-        android:background="@color/colorPrimary"
-        android:id="@+id/btn_notificacoes"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Listar Notificações"
-        android:layout_above="@id/btn_notificacoes"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         android:id="@+id/btn_listar_notificacoes"
         android:layout_marginTop="10dp"
