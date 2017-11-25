@@ -28,13 +28,12 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.main_layout);
         ButterKnife.bind(this);
 
-        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        //mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        //mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         // Set the adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, mPlanetTitles));
+        //mDrawerList.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, mPlanetTitles));
         // Set the list's click listener
         // mDrawerList.setOnItemClickListener(new DrawerLayout.);
 

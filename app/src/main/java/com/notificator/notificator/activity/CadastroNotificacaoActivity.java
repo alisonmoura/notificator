@@ -25,4 +25,9 @@ public class CadastroNotificacaoActivity extends AppCompatActivity {
         TextView textoNotificar = (TextView)findViewById(R.id.txt_de_envio);
         textoNotificar.setText("Clicou no botão Salvar");
     }
+
+    @OnClick(R.id.btnCancelar)
+    public void cancelar(){
+        this.finish();
+    }
 }
