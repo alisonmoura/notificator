@@ -1,5 +1,6 @@
 package com.notificator.notificator.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -14,10 +15,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
-/**
- * Created by irineu on 25/11/17.
- */
+import butterknife.OnClick;
 
 public class ListaContatoActivity extends AppCompatActivity{
 
@@ -35,6 +33,12 @@ public class ListaContatoActivity extends AppCompatActivity{
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,contatos);
         listaContato.setAdapter(arrayAdapter);
+    }
+
+    @OnClick(R.id.floating_btn_novo_contato)
+    public void novoContato(){
+        Intent i = new Intent(ListaContatoActivity.this, CadastroContatoActivity.class);
+        startActivity(i);
     }
 
 

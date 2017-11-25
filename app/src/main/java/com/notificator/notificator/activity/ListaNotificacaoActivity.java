@@ -1,7 +1,7 @@
 package com.notificator.notificator.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -14,8 +14,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class ListaNotificacao extends AppCompatActivity{
+public class ListaNotificacaoActivity extends AppCompatActivity{
 
     List<String> notificacoes = new ArrayList<>();
 
@@ -62,6 +63,12 @@ public class ListaNotificacao extends AppCompatActivity{
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notificacoes);
         listaNotificacoes.setAdapter(adapter);
 
+    }
+
+    @OnClick(R.id.floating_btn_nova_notificacao)
+    public void novaNotificacao(){
+        Intent i = new Intent(ListaNotificacaoActivity.this, CadastroNotificacaoActivity.class);
+        startActivity(i);
     }
 
 

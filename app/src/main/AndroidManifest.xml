@@ -11,7 +11,7 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:label="Home">
+            android:label="Notificator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -27,7 +27,7 @@
         <activity android:name=".activity.CadastroNotificacaoActivity" android:label="Notificação">
         </activity>
 
-        <activity android:name=".activity.ListaNotificacao" android:label="Lista de Notificações">
+        <activity android:name=".activity.ListaNotificacaoActivity" android:label="Lista de Notificações">
         </activity>
         <activity android:name=".activity.ListaContatoActivity" android:label="Lista de Contatos">
         </activity>
