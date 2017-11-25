@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome da Notificação:"/>
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mensagem de noticação:"/>
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Data e Hora:"/>
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Local do evento:"/>
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Lista de contatos:"/>
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome da Notificação"/>
 
-    <TextView
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tipo de envio:"
@@ -42,25 +46,25 @@
         android:id="@+id/txt_de_envio"
         android:textColor="#1a237e"/>
 
-    <CheckBox
+        <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gmail"
         android:textSize="12pt"/>
 
-    <CheckBox
+        <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Whatzapp"
         android:textSize="12pt"/>
 
-    <CheckBox
+        <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SMS"
         android:textSize="12pt"/>
 
-    <Button
+      <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar"
@@ -79,4 +83,5 @@
         android:textColor="@color/white"
         android:background="#d50000"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -29,7 +29,8 @@
 
         <activity android:name=".activity.ListaNotificacao" android:label="Lista de Notificações">
         </activity>
-
+        <activity android:name=".activity.ListaContatoActivity" android:label="Lista de Contatos">
+        </activity>
     </application>
 
 </manifest>

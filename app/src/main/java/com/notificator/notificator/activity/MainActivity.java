@@ -54,7 +54,12 @@ public class MainActivity extends AppCompatActivity{
     @OnClick(R.id.btn_listar_notificacoes)
     public void irParaListaNotificacoes(){
         Intent i = new Intent(MainActivity.this, ListaNotificacao.class);
-        startActivity(i);
+        startActivity(i);}
+
+        @OnClick(R.id.btn_listar_contatos)
+        public void irParaListaContatos(){
+            Intent i = new Intent(MainActivity.this, ListaContatoActivity.class);
+            startActivity(i);
     }
 
 
