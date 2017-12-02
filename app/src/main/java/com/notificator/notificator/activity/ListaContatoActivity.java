@@ -69,7 +69,7 @@ public class ListaContatoActivity extends AppCompatActivity{
         mona.setEmail("mona@gmail.com");
         mona.setEndereco("Rua Neve na Bahia");
         mona.setMensagemAniversario("Feliz aniversário");
-        mona.setNotificarAniversario(true);
+        mona.setNotificarAniversario(false);
 
         Contato jao = new Contato();
         jao.setNome("Jão da Silva");
