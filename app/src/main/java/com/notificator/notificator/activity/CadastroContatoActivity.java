@@ -53,19 +53,18 @@ public class CadastroContatoActivity extends AppCompatActivity {
         }
 
         Contato contato = new Contato();
-        contato = (Contato) getIntent().getSerializableExtra("CONTATO");
-        nome.setText(contato.getNome());
-        celular.setText(contato.getCelular());
-        foto.setText(contato.getFoto());
-        email.setText(contato.getEmail());
-        aniversario.setText(Long.toString(contato.getAniversario().getTime()));
-        endereco.setText(contato.getEndereco());
-        categoria.setText(contato.getCategoria());
-        msgniver.setText(contato.getMensagemAniversario());
-        notificar.setChecked(contato.getNotificarAniversario());
-
-
-
+        if(getIntent() != null && getIntent().hasExtra("CONTATO")){
+            contato = (Contato) getIntent().getSerializableExtra("CONTATO");
+            nome.setText(contato.getNome());
+            celular.setText(contato.getCelular());
+            foto.setText(contato.getFoto());
+            email.setText(contato.getEmail());
+            aniversario.setText(Long.toString(contato.getAniversario().getTime()));
+            endereco.setText(contato.getEndereco());
+            categoria.setText(contato.getCategoria());
+            msgniver.setText(contato.getMensagemAniversario());
+            notificar.setChecked(contato.getNotificarAniversario());
+        }
 
     }
 
