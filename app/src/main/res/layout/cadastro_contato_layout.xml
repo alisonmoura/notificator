@@ -46,37 +46,45 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Foto" />
+                android:hint="Foto"
+                android:id="@+id/cadastro_contato_foto"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"/>
+                android:hint="Email"
+                android:id="@+id/cadastro_contato_email"/>
+
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Aniversário" />
+                android:hint="Aniversário"
+                android:id="@+id/cadastro_contato_aniversario"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Endereço" />
+                android:hint="Endereço"
+                android:id="@+id/cadastro_contato_endereco"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Categoria" />
+                android:hint="Categoria"
+                android:id="@+id/cadastro_contato_categoria"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Mensagem de aniversário" />
+                android:hint="Mensagem de aniversário"
+                android:id="@+id/cadastro_contato_msgniver"/>
 
-            <EditText
+            <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Notificar contato" />
+                android:text="Notificar Contato"
+                android:id="@+id/cadastro_contato_notificar"/>
 
             <Button
                 android:layout_width="match_parent"
