@@ -56,11 +56,6 @@
                android:layout_height="wrap_content"
                android:hint="Lista de contatos:"/>
 
-           <EditText
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="Nome da Notificação"/>
-
            <TextView
                android:layout_width="match_parent"
                android:layout_height="wrap_content"

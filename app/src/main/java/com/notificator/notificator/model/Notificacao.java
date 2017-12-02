@@ -3,26 +3,14 @@ package com.notificator.notificator.model;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by luizc on 02/12/2017.
- */
-
 public class Notificacao implements Serializable {
 
-    private String nomedaNotificacao;
+
+    private String nomeNotificacao;
     private String mensagemNoticacao;
     private Date data;
     private String localEvento;
     private String listaContatos;
-    private String nomeNotificacao;
-
-    public String getNomedaNotificacao() {
-        return nomedaNotificacao;
-    }
-
-    public void setNomedaNotificacao(String nomedaNotificacao) {
-        this.nomedaNotificacao = nomedaNotificacao;
-    }
 
     public String getMensagemNoticacao() {
         return mensagemNoticacao;
@@ -65,46 +53,41 @@ public class Notificacao implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Notificacao{" +
-                "nomedaNotificacao='" + nomedaNotificacao + '\'' +
-                ", mensagemNoticacao='" + mensagemNoticacao + '\'' +
-                ", data=" + data +
-                ", localEvento='" + localEvento + '\'' +
-                ", listaContatos='" + listaContatos + '\'' +
-                ", nomeNotificacao='" + nomeNotificacao + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Notificacao that = (Notificacao) o;
 
-        if (nomedaNotificacao != null ? !nomedaNotificacao.equals(that.nomedaNotificacao) : that.nomedaNotificacao != null)
+        if (nomeNotificacao != null ? !nomeNotificacao.equals(that.nomeNotificacao) : that.nomeNotificacao != null)
             return false;
         if (mensagemNoticacao != null ? !mensagemNoticacao.equals(that.mensagemNoticacao) : that.mensagemNoticacao != null)
             return false;
         if (data != null ? !data.equals(that.data) : that.data != null) return false;
         if (localEvento != null ? !localEvento.equals(that.localEvento) : that.localEvento != null)
             return false;
-        if (listaContatos != null ? !listaContatos.equals(that.listaContatos) : that.listaContatos != null)
-            return false;
-        return nomeNotificacao != null ? nomeNotificacao.equals(that.nomeNotificacao) : that.nomeNotificacao == null;
-
+        return listaContatos != null ? listaContatos.equals(that.listaContatos) : that.listaContatos == null;
     }
 
     @Override
     public int hashCode() {
-        int result = nomedaNotificacao != null ? nomedaNotificacao.hashCode() : 0;
+        int result = nomeNotificacao != null ? nomeNotificacao.hashCode() : 0;
         result = 31 * result + (mensagemNoticacao != null ? mensagemNoticacao.hashCode() : 0);
         result = 31 * result + (data != null ? data.hashCode() : 0);
         result = 31 * result + (localEvento != null ? localEvento.hashCode() : 0);
         result = 31 * result + (listaContatos != null ? listaContatos.hashCode() : 0);
-        result = 31 * result + (nomeNotificacao != null ? nomeNotificacao.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Notificacao{" +
+                "nomeNotificacao='" + nomeNotificacao + '\'' +
+                ", mensagemNoticacao='" + mensagemNoticacao + '\'' +
+                ", data=" + data +
+                ", localEvento='" + localEvento + '\'' +
+                ", listaContatos='" + listaContatos + '\'' +
+                '}';
     }
 }
 

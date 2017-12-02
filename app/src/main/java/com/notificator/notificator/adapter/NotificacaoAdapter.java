@@ -25,15 +25,14 @@ public class NotificacaoAdapter extends ArrayAdapter<Notificacao> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final NotificacaoAdapter.ViewHolder holder; if (convertView == null) {
-            convertView = View.inflate(getContext(), R.layout.lista_notificacao, null);
+            convertView = View.inflate(getContext(), R.layout.notificacao_item_list, null);
             holder = new NotificacaoAdapter.ViewHolder(); ButterKnife.bind(holder, convertView); convertView.setTag(holder);
         } else {
             holder = (NotificacaoAdapter.ViewHolder) convertView.getTag();
         }
-        final Notificacao notificaca = getItem(position);
-        if(notificaca != null){
-            holder.nomedaNotificacao.setText(notificaca.getNomeNotificacao());
-            holder.mensagemNoticacao.setText(notificaca.getNomeNotificacao());
+        final Notificacao notificacao = getItem(position);
+        if(notificacao != null){
+            holder.nome.setText(notificacao.getNomeNotificacao());
             //holder.image.setImageResource(user.image);
         }
         return convertView;
@@ -41,12 +40,8 @@ public class NotificacaoAdapter extends ArrayAdapter<Notificacao> {
 
     public class ViewHolder{
 
-        @Bind(R.id.lista_notificacao_nomeNotificacao)
+        @Bind(R.id.notificacao_item_list_nome)
         TextView nome;
-
-        @Bind(R.id.lista_notificacao_mensagemNoticacao)
-        TextView me;
-
     }
 
 
