@@ -104,7 +104,7 @@
                android:text="Cancelar"
                android:id="@+id/btnCancelar"
                android:textColor="@color/white"
-               android:background="#d50000"/>
+               android:background="#808080"/>
 
        </LinearLayout>
 
