@@ -34,12 +34,14 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome do Contato" />
+                android:hint="Nome do Contato"
+                android:id="@+id/cadastro_contato_nome"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefone/Celular" />
+                android:hint="Telefone/Celular"
+                android:id="@+id/cadastro_contato_celular"/>
 
             <EditText
                 android:layout_width="match_parent"
