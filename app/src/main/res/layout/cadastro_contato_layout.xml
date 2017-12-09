@@ -18,82 +18,90 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="634dp"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cadastro de Contato"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Cadastro de Contato"
                 android:textSize="12pt" />
 
             <EditText
+                android:id="@+id/cadastro_contato_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome do Contato"
-                android:id="@+id/cadastro_contato_nome"/>
+                android:hint="Nome do Contato" />
 
             <EditText
+                android:id="@+id/cadastro_contato_celular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefone/Celular"
-                android:id="@+id/cadastro_contato_celular"/>
+                android:hint="Telefone/Celular" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Foto" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Aniversário" />
-
-            <EditText
+                android:id="@+id/cadastro_contato_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Endereço" />
 
             <EditText
+                android:id="@+id/cadastro_contato_foto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Foto" />
+
+            <EditText
+                android:id="@+id/cadastro_contato_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email" />
+
+
+            <EditText
+                android:id="@+id/cadastro_contato_aniversario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aniversário" />
+
+            <EditText
+                android:id="@+id/cadastro_contato_categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Categoria" />
 
             <EditText
+                android:id="@+id/cadastro_contato_msgniver"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mensagem de aniversário" />
 
-            <EditText
+            <CheckBox
+                android:id="@+id/cadastro_contato_notificar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Notificar contato" />
+                android:text="Notificar Contato" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Salvar"
-                android:textColor="@color/white"
-                android:background="#1b5e20"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:background="#1b5e20"
+                android:text="Salvar"
+                android:textColor="@color/white" />
 
             <Button
+                android:id="@+id/btn_cancelar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_cancelar"
+                android:background="#808080"
                 android:text="Cancelar"
-                android:textColor="@color/white"
-                android:background="#d50000"/>
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

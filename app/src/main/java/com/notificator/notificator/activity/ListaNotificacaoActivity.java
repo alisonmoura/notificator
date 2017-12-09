@@ -10,8 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.notificator.notificator.R;
+import com.notificator.notificator.adapter.NotificacaoAdapter;
+import com.notificator.notificator.model.Notificacao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -19,8 +22,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ListaNotificacaoActivity extends AppCompatActivity{
-
-    List<String> notificacoes = new ArrayList<>();
 
     @Bind(R.id.lista_notificacoes)
     ListView listaNotificacoes;
@@ -39,38 +40,9 @@ public class ListaNotificacaoActivity extends AppCompatActivity{
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        notificacoes.add("Notificação de casamento");
-        notificacoes.add("Notificação de aniversário");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
-        notificacoes.add("Notificação de Natal");
+        List<Notificacao> notificacoes = getNotificacoes();
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notificacoes);
+        NotificacaoAdapter adapter = new NotificacaoAdapter(this, notificacoes);
         listaNotificacoes.setAdapter(adapter);
 
     }
@@ -87,5 +59,27 @@ public class ListaNotificacaoActivity extends AppCompatActivity{
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private List<Notificacao> getNotificacoes(){
+
+        List<Notificacao> notificacoes = new ArrayList<>();
+
+        Notificacao natal = new Notificacao();
+        natal.setNomeNotificacao("Notificação de Natal");
+        natal.setData(new Date());
+        natal.setLocalEvento("High Tech");
+        natal.setMensagemNoticacao("Feliz Natal");
+
+        Notificacao anoNovo = new Notificacao();
+        anoNovo.setNomeNotificacao("Notificação de Ano Novo");
+        anoNovo.setData(new Date());
+        anoNovo.setLocalEvento("High Tech");
+        anoNovo.setMensagemNoticacao("Feliz Ano Novo");
+
+        notificacoes.add(natal);
+        notificacoes.add(anoNovo);
+
+        return notificacoes;
     }
 }
