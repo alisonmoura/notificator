@@ -30,13 +30,15 @@ public class ListaContatoActivity extends AppCompatActivity{
     @Bind(R.id.lista_contatos)
     ListView listaContato;
 
+    ContatoDAO dao;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_contatos);
         ButterKnife.bind(this);
 
-        ContatoDAO dao = new ContatoDAO(this);
+        dao = new ContatoDAO(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -45,7 +47,11 @@ public class ListaContatoActivity extends AppCompatActivity{
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         List<Contato> contatos = dao.buscarTodos();
 
         ContatoAdapter adapter = new ContatoAdapter(this, contatos);
