@@ -66,7 +66,9 @@
                 android:id="@+id/cadastro_contato_aniversario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Aniversário" />
+                android:hint="Aniversário"
+                android:clickable="true"
+                android:editable="false"/>
 
             <EditText
                 android:id="@+id/cadastro_contato_categoria"
