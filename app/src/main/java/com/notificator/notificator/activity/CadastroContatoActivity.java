@@ -14,10 +14,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.notificator.notificator.R;
+import com.notificator.notificator.dao.ContatoDAO;
 import com.notificator.notificator.model.Contato;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import butterknife.Bind;
@@ -45,6 +47,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
     @Bind(R.id.cadastro_contato_notificar)
     CheckBox notificar;
 
+    ContatoDAO dao;
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date;
 
@@ -53,6 +56,8 @@ public class CadastroContatoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_contato_layout);
         ButterKnife.bind(this);
+
+        dao = new ContatoDAO(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -69,7 +74,11 @@ public class CadastroContatoActivity extends AppCompatActivity {
             celular.setText(contato.getCelular());
             foto.setText(contato.getFoto());
             email.setText(contato.getEmail());
-            aniversario.setText(Long.toString(contato.getAniversario().getTime()));
+            if(contato.getAniversario() != null){
+                String myFormat = "dd/MM/yyyy";
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                aniversario.setText(sdf.format(contato.getAniversario().getTime()));
+            }
             endereco.setText(contato.getEndereco());
             categoria.setText(contato.getCategoria());
             msgniver.setText(contato.getMensagemAniversario());
@@ -101,13 +110,35 @@ public class CadastroContatoActivity extends AppCompatActivity {
     }
 
     private void updateLabel() {
-        String myFormat = "dd/MM/yy";
+        String myFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         aniversario.setText(sdf.format(myCalendar.getTime()));
     }
 
-    @OnClick(R.id.btn_cancelar)
+    @OnClick(R.id.cadastro_contato_btn_salvar)
+    public void salvar(){
+
+        Contato contato = new Contato();
+        contato.setNome(nome.getText().toString());
+        contato.setEmail(email.getText().toString());
+        contato.setCelular(celular.getText().toString());
+        contato.setEndereco(endereco.getText().toString());
+        contato.setFoto(foto.getText().toString());
+        contato.setCategoria(categoria.getText().toString());
+        contato.setMensagemAniversario(msgniver.getText().toString());
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = sdf.parse(aniversario.getText().toString());
+            dao.salvar(contato);
+            finish();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @OnClick(R.id.cadastro_contato_btn_cancelar)
     public void cancelar(){
         finish();
     }

@@ -1,5 +1,6 @@
 package com.notificator.notificator.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -52,12 +53,14 @@ public class ContatoDAO extends SQLiteOpenHelper{
 
                 //Conversão de data
                 String dataAniversarioStr = cursor.getString(5);
-                DateFormat formatter = new SimpleDateFormat("yyyy-MMM-d");
-                try {
-                    Date dataAniversario = formatter.parse(dataAniversarioStr);
-                    contato.setAniversario(dataAniversario);
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                if(dataAniversarioStr != null){
+                    DateFormat formatter = new SimpleDateFormat("yyyy-MMM-d");
+                    try {
+                        Date dataAniversario = formatter.parse(dataAniversarioStr);
+                        contato.setAniversario(dataAniversario);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 contato.setEndereco(cursor.getString(6));
@@ -71,6 +74,37 @@ public class ContatoDAO extends SQLiteOpenHelper{
         }
 
         return todos;
+
+    }
+
+    public void salvar(Contato contato){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nome", contato.getNome());
+        values.put("celular", contato.getCelular());
+        values.put("foto", contato.getFoto());
+        values.put("email", contato.getEmail());
+
+        if(contato.getAniversario() != null){
+            //Conversão de data
+            String ano = Integer.toString(contato.getAniversario().getYear());
+            String mes = Integer.toString(contato.getAniversario().getMonth());
+            String dia = Integer.toString(contato.getAniversario().getDate());
+            String dataAniversario = ano + "-" + mes + "-" + dia;
+
+            values.put("aniversario", dataAniversario);
+        }
+
+        values.put("endereco", contato.getEndereco());
+        values.put("categoria", contato.getCategoria());
+        values.put("mensagemAniversario", contato.getMensagemAniversario());
+        values.put("notificarAniversario", contato.getNotificarAniversario());
+
+        db.insert("contato", null, values);
+
+        db.close();
 
     }
 }
