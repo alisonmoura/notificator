@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Contato implements Serializable{
 
+    private Integer id;
     private String nome;
     private String celular;
     private String foto;
@@ -14,6 +15,14 @@ public class Contato implements Serializable{
     private String categoria;
     private String mensagemAniversario;
     private Boolean notificarAniversario;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -94,6 +103,7 @@ public class Contato implements Serializable{
 
         Contato contato = (Contato) o;
 
+        if (id != null ? !id.equals(contato.id) : contato.id != null) return false;
         if (nome != null ? !nome.equals(contato.nome) : contato.nome != null) return false;
         if (celular != null ? !celular.equals(contato.celular) : contato.celular != null)
             return false;
@@ -112,7 +122,8 @@ public class Contato implements Serializable{
 
     @Override
     public int hashCode() {
-        int result = nome != null ? nome.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
         result = 31 * result + (celular != null ? celular.hashCode() : 0);
         result = 31 * result + (foto != null ? foto.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
@@ -127,7 +138,8 @@ public class Contato implements Serializable{
     @Override
     public String toString() {
         return "Contato{" +
-                "nome='" + nome + '\'' +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
                 ", celular='" + celular + '\'' +
                 ", foto='" + foto + '\'' +
                 ", email='" + email + '\'' +

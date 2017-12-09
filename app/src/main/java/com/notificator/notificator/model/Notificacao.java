@@ -5,12 +5,28 @@ import java.util.Date;
 
 public class Notificacao implements Serializable {
 
-
+    private Integer id;
     private String nomeNotificacao;
     private String mensagemNoticacao;
     private Date data;
     private String localEvento;
     private String listaContatos;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNomeNotificacao() {
+        return nomeNotificacao;
+    }
+
+    public void setNomeNotificacao(String nomeNotificacao) {
+        this.nomeNotificacao = nomeNotificacao;
+    }
 
     public String getMensagemNoticacao() {
         return mensagemNoticacao;
@@ -44,14 +60,6 @@ public class Notificacao implements Serializable {
         this.listaContatos = listaContatos;
     }
 
-    public String getNomeNotificacao() {
-        return nomeNotificacao;
-    }
-
-    public void setNomeNotificacao(String nomeNotificacao) {
-        this.nomeNotificacao = nomeNotificacao;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,6 +67,7 @@ public class Notificacao implements Serializable {
 
         Notificacao that = (Notificacao) o;
 
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (nomeNotificacao != null ? !nomeNotificacao.equals(that.nomeNotificacao) : that.nomeNotificacao != null)
             return false;
         if (mensagemNoticacao != null ? !mensagemNoticacao.equals(that.mensagemNoticacao) : that.mensagemNoticacao != null)
@@ -71,7 +80,8 @@ public class Notificacao implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = nomeNotificacao != null ? nomeNotificacao.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (nomeNotificacao != null ? nomeNotificacao.hashCode() : 0);
         result = 31 * result + (mensagemNoticacao != null ? mensagemNoticacao.hashCode() : 0);
         result = 31 * result + (data != null ? data.hashCode() : 0);
         result = 31 * result + (localEvento != null ? localEvento.hashCode() : 0);
@@ -82,7 +92,8 @@ public class Notificacao implements Serializable {
     @Override
     public String toString() {
         return "Notificacao{" +
-                "nomeNotificacao='" + nomeNotificacao + '\'' +
+                "id=" + id +
+                ", nomeNotificacao='" + nomeNotificacao + '\'' +
                 ", mensagemNoticacao='" + mensagemNoticacao + '\'' +
                 ", data=" + data +
                 ", localEvento='" + localEvento + '\'' +
