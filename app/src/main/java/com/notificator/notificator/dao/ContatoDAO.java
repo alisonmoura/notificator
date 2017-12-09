@@ -7,7 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.notificator.notificator.model.Contato;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ContatoDAO extends SQLiteOpenHelper{
@@ -45,11 +49,21 @@ public class ContatoDAO extends SQLiteOpenHelper{
                 contato.setCelular(cursor.getString(2));
                 contato.setFoto(cursor.getString(3));
                 contato.setEmail(cursor.getString(4));
-                //contato.setAniversario(cursor.getString(5));
+
+                //Conversão de data
+                String dataAniversarioStr = cursor.getString(5);
+                DateFormat formatter = new SimpleDateFormat("yyyy-MMM-d");
+                try {
+                    Date dataAniversario = formatter.parse(dataAniversarioStr);
+                    contato.setAniversario(dataAniversario);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 contato.setEndereco(cursor.getString(6));
                 contato.setCategoria(cursor.getString(7));
                 contato.setMensagemAniversario(cursor.getString(8));
-                //contato.setNotificarAniversario(cursor.getInt(9));
+                contato.setNotificarAniversario(cursor.getInt(9) > 0);
 
                 todos.add(contato);
 
