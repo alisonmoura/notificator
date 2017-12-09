@@ -3,7 +3,7 @@ package com.notificator.notificator.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Notificacao implements Serializable {
+public class Notificacao extends Contato implements Serializable {
 
     private Integer id;
     private String nomeNotificacao;
