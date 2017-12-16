@@ -82,12 +82,21 @@
                android:text="SMS"
                android:textSize="8pt"/>
 
+           <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+               xmlns:tools="http://schemas.android.com/tools"
+               android:layout_width="match_parent"
+               android:layout_height="300dp"
+               android:id="@+id/map"
+               tools:context=".activity.CadastroNotificacaoActivity"
+               android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+
            <Button
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:text="Salvar"
                android:textColor="@color/white"
-               android:id="@+id/btn_salvar"
+               android:id="@+id/cadastro_notificacao_btn_salvar"
                android:background="#1b5e20"
                android:layout_marginTop="10dp"
                />
