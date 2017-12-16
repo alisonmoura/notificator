@@ -1,9 +1,11 @@
 package com.notificator.notificator.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.notificator.notificator.R;
 import com.notificator.notificator.adapter.ContatoAdapter;
@@ -31,6 +34,7 @@ public class ListaContatoActivity extends AppCompatActivity{
     ListView listaContato;
 
     ContatoDAO dao;
+    ContatoAdapter adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +58,7 @@ public class ListaContatoActivity extends AppCompatActivity{
         super.onResume();
         List<Contato> contatos = dao.buscarTodos();
 
-        ContatoAdapter adapter = new ContatoAdapter(this, contatos);
+        adapter = new ContatoAdapter(this, contatos);
         listaContato.setAdapter(adapter);
 
         listaContato.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -66,6 +70,29 @@ public class ListaContatoActivity extends AppCompatActivity{
                     i.putExtra("CONTATO", contatoClicado);
                 }
                 startActivity(i);
+            }
+        });
+
+        listaContato.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+                                           final int position, long id) {
+                AlertDialog alert = new AlertDialog.Builder(ListaContatoActivity.this)
+                        .setTitle("Deletar contato")
+                        .setMessage("Deseja deletar este contato?")
+                        .setNegativeButton("Não", null)
+                        .setPositiveButton("Sim", new
+                                DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface,
+                                                        int i) {
+                                        dao.remover(adapter.getItem(position));
+                                        adapter.remove(adapter.getItem(position));
+                                        Toast.makeText(ListaContatoActivity.this, "Contato removido com sucesso", Toast.LENGTH_LONG).show();
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                }).show();
+                return true;
             }
         });
     }

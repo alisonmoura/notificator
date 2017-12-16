@@ -13,7 +13,8 @@ import java.util.List;
 
 public class NotificacaoDAO extends SQLiteOpenHelper {
 
-    public NotificacaoDAO(Context context) { super(context, "notificator", null, 2);
+    public NotificacaoDAO(Context context) {
+        super(context, "notificator", null, 2);
     }
 
     @Override

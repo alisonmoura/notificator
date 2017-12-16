@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.notificator.notificator.R;
 import com.notificator.notificator.dao.ContatoDAO;
@@ -47,6 +48,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
     @Bind(R.id.cadastro_contato_notificar)
     CheckBox notificar;
 
+    Integer id;
     ContatoDAO dao;
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date;
@@ -74,6 +76,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
             celular.setText(contato.getCelular());
             foto.setText(contato.getFoto());
             email.setText(contato.getEmail());
+
             if(contato.getAniversario() != null){
                 String myFormat = "dd/MM/yyyy";
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -83,6 +86,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
             categoria.setText(contato.getCategoria());
             msgniver.setText(contato.getMensagemAniversario());
             notificar.setChecked(contato.getNotificarAniversario());
+            id = contato.getId();
         }
 
         date = new DatePickerDialog.OnDateSetListener() {
@@ -127,14 +131,17 @@ public class CadastroContatoActivity extends AppCompatActivity {
         contato.setFoto(foto.getText().toString());
         contato.setCategoria(categoria.getText().toString());
         contato.setMensagemAniversario(msgniver.getText().toString());
+        contato.setId(id);
 
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date date = sdf.parse(aniversario.getText().toString());
             dao.salvar(contato);
+            Toast.makeText(CadastroContatoActivity.this, "Contato cadastrado com sucesso", Toast.LENGTH_SHORT).show();
             finish();
         }catch(Exception e){
             System.out.println(e.getMessage());
+            Toast.makeText(CadastroContatoActivity.this, "Data de aniversário inválida", Toast.LENGTH_LONG).show();
         }
     }
 

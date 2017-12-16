@@ -37,13 +37,12 @@ public class ContatoDAO extends SQLiteOpenHelper{
         List<Contato> todos = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String sql = "SELECT * FROM contato";
+        String sql = "SELECT * FROM contato ORDER BY id DESC";
 
         Cursor cursor = db.rawQuery(sql, null);
 
         if(cursor.moveToFirst()){
             do{
-
                 Contato contato = new Contato();
                 contato.setId(cursor.getInt(0));
                 contato.setNome(cursor.getString(1));
@@ -102,9 +101,20 @@ public class ContatoDAO extends SQLiteOpenHelper{
         values.put("mensagemAniversario", contato.getMensagemAniversario());
         values.put("notificarAniversario", contato.getNotificarAniversario());
 
-        db.insert("contato", null, values);
+        // Verifica se tem id, se tiver ele tem que fazer update do contato
+        if(contato.getId() != null && contato.getId() > 0){
+            db.update("contato", values, "id = ?",  new String[]{contato.getId().toString()});
+        }else{
+            db.insert("contato", null, values);
+        }
 
         db.close();
 
+    }
+
+    public void remover(Contato contato){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("contato", "id = ?", new String[]{contato.getId().toString()});
+        db.close();
     }
 }
