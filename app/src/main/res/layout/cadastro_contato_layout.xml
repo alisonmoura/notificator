@@ -29,7 +29,14 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Cadastro de Contato"
-                android:textSize="12pt" />
+                android:textSize="12pt"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/user"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/cadastro_contato_foto"/>
 
             <EditText
                 android:id="@+id/cadastro_contato_nome"
@@ -50,17 +57,10 @@
                 android:hint="Endereço" />
 
             <EditText
-                android:id="@+id/cadastro_contato_foto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Foto" />
-
-            <EditText
                 android:id="@+id/cadastro_contato_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email" />
-
 
             <EditText
                 android:id="@+id/cadastro_contato_aniversario"

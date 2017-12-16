@@ -2,8 +2,12 @@ package com.notificator.notificator.activity;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,12 +16,14 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.notificator.notificator.R;
 import com.notificator.notificator.dao.ContatoDAO;
 import com.notificator.notificator.model.Contato;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,7 +40,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
     @Bind(R.id.cadastro_contato_celular)
     EditText celular;
     @Bind(R.id.cadastro_contato_foto)
-    EditText foto;
+    ImageView foto;
     @Bind(R.id.cadastro_contato_email)
     EditText email;
     @Bind(R.id.cadastro_contato_aniversario)
@@ -49,6 +55,8 @@ public class CadastroContatoActivity extends AppCompatActivity {
     CheckBox notificar;
 
     Integer id;
+    File file;
+    Uri fileUri;
     ContatoDAO dao;
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date;
@@ -74,7 +82,8 @@ public class CadastroContatoActivity extends AppCompatActivity {
             contato = (Contato) getIntent().getSerializableExtra("CONTATO");
             nome.setText(contato.getNome());
             celular.setText(contato.getCelular());
-            foto.setText(contato.getFoto());
+            fileUri = Uri.fromFile(new File(contato.getFoto()));
+            foto.setImageURI(Uri.fromFile(new File(contato.getFoto())));
             email.setText(contato.getEmail());
 
             if(contato.getAniversario() != null){
@@ -128,7 +137,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
         contato.setEmail(email.getText().toString());
         contato.setCelular(celular.getText().toString());
         contato.setEndereco(endereco.getText().toString());
-        contato.setFoto(foto.getText().toString());
+        contato.setFoto(fileUri.getPath());
         contato.setCategoria(categoria.getText().toString());
         contato.setMensagemAniversario(msgniver.getText().toString());
         contato.setId(id);
@@ -158,4 +167,25 @@ public class CadastroContatoActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @OnClick(R.id.cadastro_contato_foto)
+    public void tirarFoto(){
+        System.out.println("Clicou na foto");
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //Cria o caminho da foto
+        file = new File(getExternalCacheDir(), String.valueOf(System.currentTimeMillis()) + ".jpg");
+        fileUri = Uri.fromFile(file);
+        i.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+        startActivityForResult(i, 123);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 123){ // É o resultado da camera
+            if(resultCode == RESULT_OK){
+                System.out.println(fileUri);
+                foto.setImageURI(fileUri);
+            }
+        }
+    }
 }
